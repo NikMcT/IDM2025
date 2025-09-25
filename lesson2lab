@@ -1,0 +1,64 @@
+var jam = "Blackberry";
+var pickle = "Dill";
+var preserve = "Peach";
+var snack = "Olives";
+var gross = "Eggs";
+
+var jarred = [jam, pickle, preserve, snack, gross];
+
+let jarScore = 0;
+
+function jarAbles(){ //printing all of the contents of my jars
+    
+    let i = 0;
+
+    while (i < 5){
+        console.log("I have a jar of " + jarred[i]);
+        i++;
+    }
+}
+
+function jarScorePlus(){ //adding to my jar score
+    jarScore = jarScore + 1;
+}
+
+function jarScoreShow(){ //printing my jar score (gramatically correct)
+    if(jarScore == 1){
+        console.log("You can have " + jarScore + " jar!");
+    }
+    if (jarScore != 1){
+        console.log("You can have " + jarScore + " jars!");
+    }
+}
+
+function jarScoreEven(){ //checking if you have an even or odd amount of jars
+    if(jarScore % 2 == 0){
+        console.log("You have an EVEN amount of jars!");
+    }
+    else{
+        console.log("You have an odd amount of jars...");  
+    }
+
+}
+
+jarAbles();
+
+jarScoreShow();
+
+jarScorePlus();
+
+jarScoreShow();
+
+jarScoreEven()
+
+jarScorePlus();
+
+jarScoreShow();
+
+jarScoreEven()
+
+jarScorePlus();
+
+jarScoreShow();
+
+jarScoreEven()
