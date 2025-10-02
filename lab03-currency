@@ -1,0 +1,57 @@
+let x = 0;
+let y = 0;
+let inp = "";
+let out ="";
+
+function converter(x, inp, out){
+
+    if(inp == "$") //if input is dollars
+        if(out=="€"){ //desired output is euros
+            y = x * 0.85;
+            console.log( x, " dollars is equal to ", y, " euros."); 
+        }
+        else if(out=="£"){ //desired output is pounds
+            y = x * 0.74;
+            console.log( x, " dollars is equal to ", y, " pounds.");
+        }
+        else{ //edge case
+        console.log("Please input a currency of dollars or euros or pounds.");
+        }
+    else if(inp == "£") //if input is pounds
+        if(out=="$"){ //desired output is dollars
+            y = x * 1.35;
+            console.log( x, " pounds is equal to ", y, " dollars.");
+        }
+        else if(out=="€"){ //desired output is euros
+            y = x * 1.15;
+            console.log( x, " pounds is equal to ", y, " euros.");
+        }
+        else{ //edge case
+        console.log("Please input a currency of dollars or euros or pounds.");
+        }
+    else if(inp == "€") //if input is euros
+        if(out=="$"){ //desired output is dollars
+            y = x * 1.18;
+            console.log( x, " euros is equal to ", y, " dollars.");
+        }
+        else if(out=="£"){ //desired output is pounds
+            y = x * 0.87;
+            console.log( x, " euros is equal to ", y, " pounds.");
+        }
+        else{ //edge case
+        console.log("Please input a currency of dollars or euros or pounds.");
+        }
+    else{ //edge case
+        console.log("Please input a currency of dollars or euros or pounds.");
+    }
+}
+
+//demo
+converter(10, "$", "£");
+converter(10, "£", "$");
+converter(10, "€", "£");
+converter(10, "£", "€");
+
+//demo edge cases
+converter(10, "%", "€");
+converter(10, "£", "%");
