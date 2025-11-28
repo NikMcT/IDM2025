@@ -1,0 +1,34 @@
+[
+    {
+        "url":"images/boot.png",
+        "description":"Large Boot",
+        "title": "Boot",
+        "size":"4'x6'",
+        "medium": "Charcoal on Paper",
+        "year": 2022
+    },
+    {
+        "url":"images/feet.png",
+        "description":"Ripened Fruit",
+        "title": "Ripened Fruit",
+        "size":"18''x24''",
+        "medium": "Oil on Canvas",
+        "year": 2023
+    },
+    {
+        "url":"images/maps.png",
+        "description":"laser cut maps",
+        "title": "Maps of Home",
+        "size":"12''x12''",
+        "medium": "Plywood",
+        "year": 2022
+    },
+    {
+        "url":"images/bells.png",
+        "description":"bells hung on library boods",
+        "title": "Unrung",
+        "size":"2'x2'",
+        "medium": "Thread, bells, library",
+        "year": 2022
+    }
+]
