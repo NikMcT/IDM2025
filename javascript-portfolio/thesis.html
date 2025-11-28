@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Annika McTamaney Portfolio</title>
+        <link rel="stylesheet" href="portfolio.css">
+        <link rel="stylesheet" href="https://use.typekit.net/pfc1dvp.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Climate+Crisis&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap" rel="stylesheet">    
+    </head>    
+    
+    <body>
+        <div class="container">
+            <div class="header">
+                <!-- navigation and its content -->
+                <div class="navName">
+                    <a href="about.html" class="navName">Annika McTamaney</a>
+                </div>
+                <div class="nav">
+                    <a href="about.html" class="navObject">About</a>
+                    <a href="web.html" class="navObject">Web & Coding</a>
+                    <a href="product.html" class="navObject">Product</a>
+                    <a href="fineart.html" class="navObject">Fine Art</a>
+                </div>  
+            </div>
+
+            <!-- Body content. Currently, full of lorem ipsum - this page is to be used as a template page for all the projects to be uploaded in each repository -->
+            <div class="body">
+                <div class="projectContent">
+                    <div class="infoSection">
+                        <div class="projTitle"> 
+                            <h2>Masters Thesis</h2>
+                            <h3>Interactive Digital Media</h3>
+                        </div>
+
+                        <!-- to hold content about the project itself, what it was, and how it was made -->
+                        <div class="pageCopy">
+                            <p>
+                                A research paper submitted to the University of Dublin, in partial fulfilment of the requirements for the degree of Master of Science Interactive Digital Media 
+                                <br><br>
+                                This paper, which is still in progress, seeks to answer the question: "what makes digital representations successful when presenting physical products to online consumers?"
+                            </p>
+                        </div>
+
+                    </div>
+                    
+                    <!-- section on the right, to show project images -->
+                    <div class="book-container">
+                        <h3>Papers I'm Reading</h3>
+                        <div class="bookDisplay" id="bookDisplay"></div>
+                        <div class="controls">
+                            <button class="btn" id="prevBtn"><</button>
+                            <button class="btn" id="nextBtn">></button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="paperSingle" id="template">
+                <div class="titleSection">
+                    <p class="paperTitle" style="font-weight: bold; font-size: 1.1em;"></p>
+                </div>
+                <div class="paperDesc">
+                    <p class="authors"></p>
+                    <p class="year"></p>
+                    <p class="terms"></p>
+                </div>
+            </div>
+
+            <script src="papers.js"></script>
+        
+            <div class="footer">
+                <p>Contact</p>
+                <!-- to be updated with a working contact form -->
+            </div>
+        </div>
+    </body>     
+</html>

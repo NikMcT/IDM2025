@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Annika McTamaney Portfolio</title>
+        <link rel="stylesheet" href="portfolio.css">
+        <link rel="stylesheet" href="https://use.typekit.net/pfc1dvp.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Climate+Crisis&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap" rel="stylesheet">    
+    </head>      
+    <body>
+
+        <div class="container">
+            <div class="header">
+                <div class="navName">
+                    <a href="about.html" class="navName">Annika McTamaney</a>
+                </div>
+                <div class="nav">
+                    <a href="about.html" class="navObject">About</a>
+                    <a href="web.html" class="navCurrent">Web & Coding</a>
+                    <a href="product.html" class="navObject">Product</a>
+                    <a href="fineart.html" class="navObject">Fine Art</a>
+                </div>  
+            </div>
+
+            <div class="body">
+                <div class="repoContent">
+                    <div class="infoSection">
+                        <div class="pageTitle">
+                        <!-- information section about product design, my approach, and education with it -->
+                            <h1>Web & Coding</h1>
+                        </div>
+                        <div class="pageCopy">
+                            <p>
+                                Iaculis massa nisl malesuada lacinia integer nunc posuere. Ad litora torquent per conubia nostra inceptos himenaeos. Ad litora torquent per conubia nostra inceptos himenaeos. 
+                                <br>
+                                Ut hendrerit semper vel class aptent taciti sociosqu. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. 
+                            </p>
+                        </div>
+
+                        <div id="btnContainer">
+                            <button class="btn active" onclick="filter('all')"> Show all</button>
+                            <button class="btn" onclick="filter('html')"> HTML/CSS</button>
+                            <button class="btn" onclick="filter('design')"> Designs</button>
+                            <button class="btn" onclick="filter('js')"> Javascript</button>
+                            <button class="btn" onclick="filter('java')"> Java & C++</button>
+                        </div>
+
+                    </div>
+                    
+                    <div class="projectSection">
+                        
+                        <!-- project repo section, each link will be personalised with the project title, a unique link, and a brief description of the project -->
+
+                        <a href="project.html">
+                            <div class="projectSingle filterDiv html">
+                                <div class="projectTitle">
+                                    <div class="orangeDot"></div>
+                                    <h3 class="introText">HTML Project</h3>
+                                </div>
+                                <div class="projectDesc">
+                                    Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. 
+                                </div>
+                            </div>
+                        </a>
+                        <a href="project.html">
+                            <div class="projectSingle filterDiv design">
+                                <div class="projectTitle">
+                                    <div class="orangeDot"></div>
+                                    <h3 class="introText">Web Design Project</h3>
+                                </div>
+                                <div class="projectDesc">
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </div>
+                            </div>
+                        </a>
+                        <a href="project.html">
+                            <div class="projectSingle filterDiv js">
+                                <div class="projectTitle">
+                                    <div class="orangeDot"></div>
+                                    <h3 class="introText">JavaScript Project</h3>
+                                </div>
+                                <div class="projectDesc">
+                                    Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </div>
+                            </div>
+                        </a>
+                        <a href="project.html">
+                            <div class="projectSingle filterDiv java">
+                                <div class="projectTitle">
+                                    <div class="orangeDot"></div>
+                                    <h3 class="introText">Java/C++ Project</h3>
+                                </div>
+                                <div class="projectDesc">
+                                    Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="footer">
+                <p>Contact</p>
+                <!-- to update this with a full working contact form -->
+            </div>
+        </div>
+    </body>
+
+    <script src="script.js"></script>
+            
+</html>

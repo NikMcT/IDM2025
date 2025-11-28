@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Display</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .book-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-display {
+            min-height: 300px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .book-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .book-author {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .book-year {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .book-description {
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        .book-terms {
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #667eea;
+            width: 0;
+            animation: progress 5s linear;
+        }
+
+        @keyframes progress {
+            to {
+                width: 100%;
+            }
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .control-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .control-btn:hover {
+            background: #764ba2;
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="book-container">
+        <div class="book-display" id="bookDisplay"></div>
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="controls">
+            <button class="control-btn" id="prevBtn">Previous</button>
+            <button class="control-btn" id="pauseBtn">Pause</button>
+            <button class="control-btn" id="nextBtn">Next</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample book data - replace this with your JSON file
+        const books = [
+            {
+                title: "To Kill a Mockingbird",
+                authors: "Harper Lee",
+                year: 1960,
+                terms: "Classic Fiction",
+                description: "A gripping tale of racial injustice and childhood innocence in the American South."
+            },
+            {
+                title: "1984",
+                author: "George Orwell",
+                year: 1949,
+                terms: "Dystopian Fiction",
+                description: "A dystopian social science fiction novel exploring surveillance, truth, and totalitarianism."
+            },
+            {
+                title: "Pride and Prejudice",
+                author: "Jane Austen",
+                year: 1813,
+                terms: "Romance",
+                description: "A romantic novel of manners that critiques the British landed gentry at the end of the 18th century."
+            },
+            {
+                title: "The Great Gatsby",
+                author: "F. Scott Fitzgerald",
+                year: 1925,
+                terms: "Literary Fiction",
+                description: "A critique of the American Dream set in the Jazz Age, exploring themes of wealth, love, and idealism."
+            },
+            {
+                title: "The Hobbit",
+                author: "J.R.R. Tolkien",
+                year: 1937,
+                terms: "Fantasy",
+                description: "A timeless fantasy adventure following Bilbo Baggins on an unexpected journey."
+            }
+        ];
+
+        let currentIndex = 0;
+        let intervalId;
+        let isPaused = false;
+        const cycleTime = 5000; // 5 seconds
+
+        const bookDisplay = document.getElementById('bookDisplay');
+        const progressBar = document.getElementById('progressBar');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function displayBook(index) {
+            const book = books[index];
+            bookDisplay.style.opacity = '0';
+            
+            setTimeout(() => {
+                bookDisplay.innerHTML = `
+                    <h2 class="book-title">${book.title}</h2>
+                    <p class="book-author">by ${book.authors}</p>
+                    <span class="book-year">${book.year}</span>
+                    <p class="book-terms">Key Terms: ${book.terms}</p>
+                    <p class="book-description">${book.description}</p>
+                `;
+                bookDisplay.style.opacity = '1';
+                
+                // Reset and restart progress bar
+                progressBar.style.animation = 'none';
+                setTimeout(() => {
+                    progressBar.style.animation = `progress ${cycleTime}ms linear`;
+                }, 10);
+            }, 300);
+        }
+
+        function nextBook() {
+            currentIndex = (currentIndex + 1) % books.length;
+            displayBook(currentIndex);
+        }
+
+        function prevBook() {
+            currentIndex = (currentIndex - 1 + books.length) % books.length;
+            displayBook(currentIndex);
+        }
+
+        function startCycle() {
+            intervalId = setInterval(nextBook, cycleTime);
+            isPaused = false;
+            pauseBtn.textContent = 'Pause';
+        }
+
+        function stopCycle() {
+            clearInterval(intervalId);
+            isPaused = true;
+            pauseBtn.textContent = 'Resume';
+        }
+
+        // Event listeners
+        pauseBtn.addEventListener('click', () => {
+            if (isPaused) {
+                startCycle();
+            } else {
+                stopCycle();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopCycle();
+            prevBook();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            stopCycle();
+            nextBook();
+        });
+
+        // Initialize
+        displayBook(currentIndex);
+        startCycle();
+
+        /* 
+        TO USE WITH EXTERNAL JSON FILE:
+        
+        1. Create a file named 'books.json' with this structure:
+        [
+            {
+                "title": "Book Title",
+                "author": "Author Name",
+                "year": 2024,
+                "terms": "terms",
+                "description": "Book description here"
+            }
+        ]
+        
+        2. Replace the books array declaration with:
+        
+        let books = [];
+        
+        fetch('books.json')
+            .then(response => response.json())
+            .then(data => {
+                books = data;
+                displayBook(currentIndex);
+                startCycle();
+            })
+            .catch(error => console.error('Error loading books:', error));
+        
+        3. Remove the initial displayBook() and startCycle() calls at the bottom
+        */
+    </script>
+</body>
+</html>
